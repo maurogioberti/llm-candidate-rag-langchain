@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
 from typing import List, Dict, Any
-from langchain_community.vectorstores import Chroma
-from langchain.docstore.document import Document
+from langchain_chroma import Chroma
+from langchain_core.documents import Document
 
 VECTORS_DIR = Path(os.getenv("DATA_DIR", "./data")) / "vectors"
 VECTORS_DIR.mkdir(parents=True, exist_ok=True)

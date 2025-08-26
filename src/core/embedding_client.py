@@ -1,5 +1,5 @@
 import os
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 def load_embeddings():
     model_name = os.getenv("EMB_MODEL", "sentence-transformers/all-MiniLM-L6-v2")

@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from langchain_community.chat_models import ChatOllama
+from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
