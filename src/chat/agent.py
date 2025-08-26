@@ -1,8 +1,10 @@
 import os
-from langchain.chains import RetrievalQA
-from langchain_core.prompts import PromptTemplate
 from langchain_community.chat_models import ChatOllama
 from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain.chains import create_retrieval_chain
+
 from core.embedding_client import load_embeddings
 from core.retriever import chroma_persistent
 from core.prompting import load_prompt
@@ -24,20 +26,15 @@ def build_chain():
     emb = load_embeddings()
     store = chroma_persistent(emb)
     retriever = store.as_retriever(search_kwargs={"k": 6})
+
     system = load_prompt("chat_system.txt")
-    prompt = PromptTemplate(
-        input_variables=["context", "question"],
-        template=(
-            system +
-            "\n\nContext:\n{context}\n\nQuestion:\n{question}\n\nAnswer (cite candidate_id and section):"
-        ),
-    )
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", system),
+        ("human", "Context:\n{context}\n\nQuestion:\n{input}\n\nAnswer (cite CandidateId/section):")
+    ])
+
     llm = _load_llm()
-    chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        retriever=retriever,
-        chain_type="stuff",
-        chain_type_kwargs={"prompt": prompt},
-        return_source_documents=True
-    )
-    return chain
+    doc_chain = create_stuff_documents_chain(llm, prompt)
+    rag_chain = create_retrieval_chain(retriever, doc_chain)
+
+    return rag_chain

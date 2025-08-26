@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from ingest.build_index import build_index
 from chat.agent import build_chain
@@ -20,9 +20,13 @@ def index():
 
 @app.post("/chat")
 def chat(req: ChatRequest):
-    chain = build_chain()
-    result = chain({"query": req.question})
-    return {
-        "answer": result["result"],
-        "sources": [d.metadata for d in result["source_documents"]]
-    }
+    try:
+        chain = build_chain()
+        result = chain.invoke({"input": req.question})
+        
+        return {
+            "answer": result.get("answer", ""),
+            "sources": [getattr(d, "metadata", {}) for d in result.get("context", [])]
+        }
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"LLM/Index error: {e}")
