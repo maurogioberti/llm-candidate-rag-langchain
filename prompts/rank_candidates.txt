@@ -1,0 +1,3 @@
+Rank candidates for overall readiness for a senior backend .NET role.
+Criteria: relevance to required stack, depth of experience, recency, and proven evidence.
+Return a concise ordered list: [{"CandidateId": "...","Why":"..."}].

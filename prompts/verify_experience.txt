@@ -1,0 +1,2 @@
+Return candidates that show verifiable experience (links, companies, repositories, public evidence).
+Output: [{"CandidateId":"...","Evidence":"..."}].

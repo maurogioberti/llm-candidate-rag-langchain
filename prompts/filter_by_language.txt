@@ -1,0 +1,2 @@
+Return candidates with English level at or above the requested threshold.
+Output: [{"CandidateId":"...","English":"B2|C1|C2","Evidence":"..."}].

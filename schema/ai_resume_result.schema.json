@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "title": "AIResumeResult",
+  "type": "object",
+  "properties": {
+    "GeneralInfo": {
+      "type": "object",
+      "properties": {
+        "FullName": { "type": "string" },
+        "Seniority": { "type": "string" },
+        "YearsExperience": { "type": "number" },
+        "Location": { "type": "string" },
+        "CandidateId": { "type": "string" }
+      }
+    },
+    "SkillMatrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": { "SkillName": { "type": "string" }, "SkillLevel": { "type": "string" } }
+      }
+    },
+    "Languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": { "Language": { "type": "string" }, "Proficiency": { "type": "string" } }
+      }
+    },
+    "Scores": {
+      "type": "object",
+      "properties": { "GeneralScore": { "type": "number" }, "ATSCompatibility": { "type": "number" } }
+    },
+    "Summary": { "type": "string" }
+  },
+  "required": ["Summary"]
+}
