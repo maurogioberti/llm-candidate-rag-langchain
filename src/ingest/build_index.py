@@ -7,6 +7,7 @@ from langchain_core.documents import Document
 from core.domain import CandidateRecord
 from core.embedding_client import load_embeddings
 from core.retriever import chroma_from_documents
+from infra.embeddings import load_instruction_pairs  # <- JSONL loader
 
 DATA_DIR = Path(os.getenv("DATA_DIR", "./data"))
 INPUT_DIR = DATA_DIR / "input"
@@ -59,6 +60,17 @@ def to_documents(records: List[CandidateRecord]) -> List[Document]:
 def build_index() -> dict:
     records = load_candidate_records()
     docs = to_documents(records)
+
+    instr_path = Path(os.getenv("EMBEDING_INSTRUCTION_FILE", "data/instructions/embedings.jsonl"))
+    if instr_path.exists():
+        instr_docs = load_instruction_pairs(instr_path)
+        try:
+            from langchain_text_splitters import RecursiveCharacterTextSplitter
+        except Exception:
+            from langchain.text_splitter import RecursiveCharacterTextSplitter
+        splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=60)
+        docs += splitter.split_documents(instr_docs)
+
     emb = load_embeddings()
     vs = chroma_from_documents(docs, emb)
     vs.persist()

@@ -1,0 +1,128 @@
+{
+  "GeneralInfo": {
+    "CandidateId": "MauroGiobertiBackendDotNetEnglishC1TechLead",
+    "Fullname": "Mauro Gioberti",
+    "TitleDetected": "Software Engineer | Mentor | Tech Lead",
+    "TitlePredicted": "Software Engineer / Technical Lead",
+    "SeniorityLevel": "Senior",
+    "YearsExperience": 12,
+    "RelevantYears": 10,
+    "IndustryMatch": "Excellent alignment with Software Engineering and IT Leadership",
+    "TrajectoryPattern": "Stable",
+    "MainIndustry": "Software Development / IT",
+    "EnglishLevel": "Advanced (CEF C1)",
+    "OtherLanguages": [
+      {
+        "Language": "Spanish",
+        "Proficiency": "Native",
+        "Evidence": "Spanish (Native)"
+      }
+    ],
+    "Location": "Barcelona, Spain (Remote)"
+  },
+  "SkillMatrix": [
+    {
+      "SkillName": "Software Engineering",
+      "SkillLevel": "Very High",
+      "Evidence": "Explicit title and professional focus"
+    },
+    {
+      "SkillName": "Technical Leadership",
+      "SkillLevel": "Very High",
+      "Evidence": "Tech Lead title and mentorship roles"
+    },
+    {
+      "SkillName": "Mentoring",
+      "SkillLevel": "Very High",
+      "Evidence": "Explicitly stated in title and professional description"
+    },
+    {
+      "SkillName": "Remote Work",
+      "SkillLevel": "High",
+      "Evidence": "Location: Barcelona, Spain (Remote)"
+    },
+    {
+      "SkillName": "Bilingual Communication",
+      "SkillLevel": "Very High",
+      "Evidence": "Languages: English (C1), Spanish (Native)"
+    }
+  ],
+  "KeywordCoverage": {
+    "KeywordsDetected": [
+      "Software Engineer",
+      "Mentor",
+      "Tech Lead",
+      "Remote",
+      "English",
+      "Spanish"
+    ],
+    "KeywordsMissing": [
+      "Cloud",
+      "Agile",
+      "CI/CD",
+      "DevOps",
+      "Microservices",
+      "Testing",
+      "API",
+      "Architecture",
+      "Scrum",
+      "Backend",
+      "Frontend"
+    ],
+    "Density": 30,
+    "Context": "Keywords found reflect seniority, bilingual skills, and leadership; technical stack keywords are not detailed in this segment."
+  },
+  "Languages": [
+    {
+      "Language": "English",
+      "Proficiency": "Advanced",
+      "Evidence": "English (CEF C1)"
+    },
+    {
+      "Language": "Spanish",
+      "Proficiency": "Native",
+      "Evidence": "Spanish (Native)"
+    }
+  ],
+  "Scores": {
+    "GeneralScore": 92,
+    "ATSCompatibility": 85,
+    "ClarityScore": 90,
+    "FormattingScore": 95,
+    "KeywordDensity": 30,
+    "EnglishProficiency": 90,
+    "SeniorityMatch": 95,
+    "SkillCoverage": 75,
+    "AchievementsQuantification": 70,
+    "SoftSkillsCoverage": 90
+  },
+  "Relevance": {
+    "TitleMatch": 98,
+    "ResponsibilityMatch": 95,
+    "OverallFit": 97
+  },
+  "ClarityAndFormatting": {
+    "ClarityScore": 90,
+    "FormattingScore": 95,
+    "SpellingErrors": 0
+  },
+  "Summary": "Senior Software Engineer and Tech Lead with over a decade of experience, fluent in English and Spanish, with a strong background in technical leadership, mentoring, and delivering high-quality software solutions. Dual Argentine/Italian citizenship and extensive remote work experience.",
+  "Strengths": [
+    "Extensive experience in software engineering and technical leadership",
+    "Strong mentoring and team development capabilities",
+    "Bilingual fluency and multicultural background",
+    "Proven remote work and collaboration skills",
+    "Well-established professional profile with strong online presence"
+  ],
+  "AreasToImprove": [
+    "Explicit mention of modern technical stacks and methodologies",
+    "Quantification of leadership and project achievements",
+    "Expansion on hands-on technical skills (cloud, DevOps, testing) in the summary"
+  ],
+  "Tips": [
+    "Include a summary of technical skills and technologies used in recent projects",
+    "Add quantified achievements for leadership and delivery impact",
+    "Highlight experience with modern development practices (Agile, cloud, microservices) if applicable"
+  ],
+  "CleanedResumeText": "Mauro Gioberti\nSoftware Engineer | Mentor | Tech Lead\nLocation: Barcelona, Spain (Remote)\nEmail: giobertimauro@gmail.com | Phone: +1 (929) 393 2427\nLinkedIn: linkedin.com/in/maurogioberti | GitHub: github.com/maurogioberti | Portfolio: maurogioberti.com\nDate of Birth: May 16, 1992 | Nationality: Argentine / Italian\nLanguages: English (CEF C1), Spanish (Native)"
+}

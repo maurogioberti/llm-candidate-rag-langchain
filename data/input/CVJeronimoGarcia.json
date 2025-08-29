@@ -1,0 +1,163 @@
+{
+  "GeneralInfo": {
+    "CandidateId": "CVJeronimoGarciaFrontendReactB2Developer",
+    "Fullname": "Jerónimo García",
+    "TitleDetected": "Software Developer",
+    "TitlePredicted": "Frontend Developer",
+    "SeniorityLevel": "Junior",
+    "YearsExperience": 2,
+    "RelevantYears": 2,
+    "IndustryMatch": "Strong alignment with Software/Web Development",
+    "TrajectoryPattern": "Stable",
+    "MainIndustry": "Software Development",
+    "EnglishLevel": "Advanced",
+    "OtherLanguages": [
+      {
+        "Language": "Spanish",
+        "Proficiency": "Native",
+        "Evidence": "Spanish: native"
+      }
+    ],
+    "Location": "Puçol, Comunitat Valenciana, España"
+  },
+  "SkillMatrix": [
+    {
+      "SkillName": "React JS",
+      "SkillLevel": "High",
+      "Evidence": "Developed landing pages and migrated applications to React in multiple projects"
+    },
+    {
+      "SkillName": "JavaScript",
+      "SkillLevel": "High",
+      "Evidence": "Front-end projects and courses in JavaScript, React, and Vanilla JS"
+    },
+    {
+      "SkillName": "HTML/CSS",
+      "SkillLevel": "Very High",
+      "Evidence": "Web layout and design, project experience, OpenBootcamp and Coderhouse education"
+    },
+    {
+      "SkillName": "TypeScript",
+      "SkillLevel": "Medium",
+      "Evidence": "Udemy courses, practical React/TypeScript guide"
+    },
+    {
+      "SkillName": "Vue JS",
+      "SkillLevel": "Medium",
+      "Evidence": "Completed Coderhouse VUE JS course and Udemy training"
+    },
+    {
+      "SkillName": "Next.js",
+      "SkillLevel": "Medium",
+      "Evidence": "Contributed to migration from AngularJS to Next.js at ITECH Global Solutions"
+    },
+    {
+      "SkillName": "AngularJS",
+      "SkillLevel": "Medium",
+      "Evidence": "Experience converting AngularJS components during migration project"
+    },
+    {
+      "SkillName": "Component Design",
+      "SkillLevel": "High",
+      "Evidence": "Rebuilt and optimized reusable React components"
+    },
+    {
+      "SkillName": "Frontend Optimization",
+      "SkillLevel": "Medium",
+      "Evidence": "Optimized tables and forms for performance and user experience"
+    },
+    {
+      "SkillName": "Collaboration",
+      "SkillLevel": "High",
+      "Evidence": "Worked closely with teams and backend developers"
+    }
+  ],
+  "KeywordCoverage": {
+    "KeywordsDetected": [
+      "React",
+      "Next.js",
+      "JavaScript",
+      "TypeScript",
+      "Vue JS",
+      "HTML",
+      "CSS",
+      "AngularJS",
+      "Frontend",
+      "Component",
+      "Optimization",
+      "Web development",
+      "Git",
+      "SOLID",
+      "Clean Code"
+    ],
+    "KeywordsMissing": [
+      "Redux",
+      "SASS",
+      "Testing",
+      "REST API",
+      "CI/CD",
+      "Docker",
+      "Agile",
+      "Unit Testing",
+      "Jest",
+      "Accessibility"
+    ],
+    "Density": 44,
+    "Context": "Focus on core frontend frameworks and web development skills; lacks explicit mention of testing, deployment, or backend technologies."
+  },
+  "Languages": [
+    {
+      "Language": "Spanish",
+      "Proficiency": "Native",
+      "Evidence": "Spanish: native"
+    },
+    {
+      "Language": "English",
+      "Proficiency": "Advanced",
+      "Evidence": "First Certificate coursed, Pre-first certificate approved, technical studies and projects described in English"
+    }
+  ],
+  "Scores": {
+    "GeneralScore": 76,
+    "ATSCompatibility": 83,
+    "ClarityScore": 82,
+    "FormattingScore": 65,
+    "KeywordDensity": 44,
+    "EnglishProficiency": 85,
+    "SeniorityMatch": 60,
+    "SkillCoverage": 78,
+    "AchievementsQuantification": 30,
+    "SoftSkillsCoverage": 70
+  },
+  "Relevance": {
+    "TitleMatch": 85,
+    "ResponsibilityMatch": 80,
+    "OverallFit": 82
+  },
+  "ClarityAndFormatting": {
+    "ClarityScore": 82,
+    "FormattingScore": 65,
+    "SpellingErrors": 1
+  },
+  "Summary": "Junior Software Developer with strong frontend skills in React, JavaScript, HTML/CSS, and experience in migrating and optimizing web applications. Demonstrates proficiency in modern frameworks like Next.js and Vue JS, strong collaboration abilities, and advanced English proficiency. Eager to grow further in software development and contribute to dynamic teams.",
+  "Strengths": [
+    "Solid React and JavaScript development background",
+    "Hands-on experience with real projects and web migrations",
+    "Strong foundation in HTML/CSS and modern web technologies",
+    "Advanced English proficiency for international environments",
+    "Quick learner with curiosity and adaptability"
+  ],
+  "AreasToImprove": [
+    "Gain professional experience in automated testing and CI/CD practices",
+    "Expand backend development or fullstack capabilities",
+    "Add more quantifiable achievements and metrics"
+  ],
+  "Tips": [
+    "Include more details on measurable outcomes and project impact",
+    "Highlight any experience or learning with unit/integration testing frameworks",
+    "Consider adding knowledge or hands-on experience with Redux, REST APIs, or backend technologies",
+    "Improve visual formatting and section headers for better ATS compatibility",
+    "Keep portfolio projects up-to-date and add deployment links where possible"
+  ],
+  "CleanedResumeText": "Jerónimo García\nPuçol, Comunitat Valenciana, España |  Email: jerogarcai23.jg@gmail.com\nLinkedIn: https://www.linkedin.com/in/jeronimogarciacoding/ | GitHub: https://github.com/jeronimogarcia\n\nPROFESSIONAL SUMMARY\nCurious and dedicated Software Developer with hands-on experience in web development and migration projects. Specialized in React, JavaScript, HTML, and CSS with advanced English proficiency. Passionate about delivering responsive, optimized user experiences and learning new technologies.\n\nPROFESSIONAL EXPERIENCE\nITECH GLOBAL SOLUTIONS | Software Developer | 2022-2024\n- Migrated web application from AngularJS to Next.js, focusing on rebuilding and optimizing tables and forms.\n- Converted AngularJS components to React within the Next.js framework.\n- Collaborated with backend developers for seamless integration and enhanced data flow.\n\nCODERHOUSE PROJECT – Proyecto Raíz | Frontend Developer | 2022\n- Designed and developed a conversion-optimized React landing page for a real client.\n- Led both front-end design and coding, working collaboratively within a team.\n\nVOLTA | Web Developer | 2022\n- Developed and laid out a web page using HTML and CSS.\n\nEDUCATION & CERTIFICATES\n- Frontend Career (Web Developer, JavaScript, React JS) – Coderhouse\n- VUE JS Course – Coderhouse\n- MERN Advanced Course – OpenBootcamp\n- Frontend route (Programming intro, HTML/CSS, JavaScript, Git, React JS, Advanced React JS) – OpenBootcamp\n- React (Maximilian Schwarzmüller), Vue JS (Ignacio bluuweb) – Udemy\n- Fullstack Degree in Political Sciences (3 years completed) – Universidad Nacional de Rosario\n- Instituto Politécnico Superior – High School (2005-2011)\n- React + TypeScript Practical Guide (Maximilian Schwarzmuller)\n- SOLID Principles and Clean Code (Fernando Herrera)\n\nSKILLS\n- React JS, Next.js, JavaScript, TypeScript, Vue JS, HTML5/CSS, AngularJS\n- Formik/Yup\n- Component design and frontend optimization\n- Collaboration and teamwork\n- Git\n\nLANGUAGES\n- Spanish: Native\n- English: Advanced (First Certificate coursed, Pre-first certificate approved)"
+}
