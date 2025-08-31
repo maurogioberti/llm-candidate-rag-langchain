@@ -3,11 +3,10 @@ import json
 from pathlib import Path
 from typing import List
 from langchain_core.documents import Document
-
-from core.domain import CandidateRecord
-from core.embedding_client import load_embeddings
-from core.retriever import chroma_from_documents
-from infra.embeddings import load_instruction_pairs  # <- JSONL loader
+from src.core.domain import CandidateRecord
+from src.core.embedding_client import load_embeddings
+from src.core.retriever import chroma_from_documents
+from src.infra.embeddings import load_instruction_pairs
 
 DATA_DIR = Path(os.getenv("DATA_DIR", "./data"))
 INPUT_DIR = DATA_DIR / "input"
@@ -63,17 +62,19 @@ def build_index() -> dict:
 
     instr_path = Path(os.getenv("EMBEDING_INSTRUCTION_FILE", "data/instructions/embedings.jsonl"))
     if instr_path.exists():
-        instr_docs = load_instruction_pairs(instr_path)
+        pairs = load_instruction_pairs(instr_path)
+        extra_docs = [
+            Document(page_content=text, metadata=meta) for (text, meta) in pairs
+        ]
         try:
             from langchain_text_splitters import RecursiveCharacterTextSplitter
         except Exception:
             from langchain.text_splitter import RecursiveCharacterTextSplitter
         splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=60)
-        docs += splitter.split_documents(instr_docs)
+        docs += splitter.split_documents(extra_docs)
 
     emb = load_embeddings()
-    vs = chroma_from_documents(docs, emb)
-    vs.persist()
+    chroma_from_documents(docs, emb)
     return {"candidates": len(records), "chunks": len(docs)}
 
 
@@ -81,3 +82,8 @@ def build_index_from_records(records: List[CandidateRecord]):
     emb = load_embeddings()
     docs = to_documents(records)
     return chroma_from_documents(docs, emb)
+
+
+if __name__ == "__main__":
+    info = build_index()
+    print(json.dumps({"indexed": info}, ensure_ascii=False))

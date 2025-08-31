@@ -32,9 +32,9 @@ def _load_llm():
 
 
 def build_chain():
-    from core.embedding_client import load_embeddings
-    from core.retriever import chroma_persistent
-    from core.prompting import load_prompt
+    from src.core.embedding_client import load_embeddings
+    from src.core.retriever import chroma_persistent
+    from src.core.prompting import load_prompt
 
     emb = load_embeddings()
     store = chroma_persistent(emb)

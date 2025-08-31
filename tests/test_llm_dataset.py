@@ -1,5 +1,5 @@
 import os
-from infra.llm import load_llm_instruction_records
+from src.infra.llm import load_llm_instruction_records
 
 def test_llm_dataset_loads():
     path = os.getenv("LLM_INSTRUCTION_FILE", "data/instructions/llm.jsonl")

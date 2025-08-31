@@ -1,7 +1,6 @@
-#TODO: Get rid of folder scripts and relocate in better place
 import os, json
 from pathlib import Path
-from infra.llm import load_llm_instruction_records
+from src.infra.llm import load_llm_instruction_records
 
 def main():
     src = os.getenv("LLM_INSTRUCTION_FILE", "data/instructions/llm.jsonl")
@@ -36,10 +35,6 @@ def main():
     print(f"[OK] Loaded {len(recs)} records")
     print(f"[OK] Wrote: {openai_path}")
     print(f"[OK] Wrote: {instruct_path}")
-    print("\nNext steps (OpenAI):")
-    print("  1) export OPENAI_API_KEY=... ")
-    print(f"  2) openai files create -f {openai_path} -p fine-tune")
-    print("  3) openai fine_tuning.jobs.create -t <file_id> -m gpt-4o-mini")
 
 if __name__ == "__main__":
     main()

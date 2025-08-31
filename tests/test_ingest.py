@@ -1,4 +1,4 @@
-from ingest.build_index import build_index
+from src.ingest.build_index import build_index
 
 def test_build_index_runs():
     info = build_index()

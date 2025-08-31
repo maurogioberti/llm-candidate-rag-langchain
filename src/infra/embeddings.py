@@ -1,13 +1,12 @@
 from pathlib import Path
-from typing import List
+from typing import List, Tuple, Dict, Any
 import json
-from langchain_core.documents import Document
 
-def load_instruction_pairs(path: str | Path = "data/instructions/embedings.jsonl") -> List[Document]:
+def load_instruction_pairs(path: str | Path = "data/instructions/embedings.jsonl") -> List[Tuple[str, Dict[str, Any]]]:
     p = Path(path)
     if not p.exists():
         return []
-    docs: List[Document] = []
+    out: List[Tuple[str, Dict[str, Any]]] = []
     for i, line in enumerate(p.read_text(encoding="utf-8").splitlines(), start=1):
         line = line.strip()
         if not line:
@@ -17,9 +16,9 @@ def load_instruction_pairs(path: str | Path = "data/instructions/embedings.jsonl
         pos = rec.get("positive")
         neg = rec.get("negative")
         if q:
-            docs.append(Document(page_content=q,  metadata={"type": "query",    "pair_id": i}))
+            out.append((q,  {"type": "query",    "pair_id": i}))
         if pos:
-            docs.append(Document(page_content=pos, metadata={"type": "positive", "pair_id": i, "query": q}))
+            out.append((pos, {"type": "positive", "pair_id": i, "query": q}))
         if neg:
-            docs.append(Document(page_content=neg, metadata={"type": "negative", "pair_id": i, "query": q}))
-    return docs
+            out.append((neg, {"type": "negative", "pair_id": i, "query": q}))
+    return out

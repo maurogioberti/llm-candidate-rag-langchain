@@ -1,5 +1,5 @@
 import os, pytest
-from chat.agent import build_chain
+from src.chat.agent import build_chain
 
 @pytest.mark.skipif(not os.path.exists("data/vectors/chroma"),
                     reason="index not built")

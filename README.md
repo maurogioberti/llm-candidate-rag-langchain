@@ -4,6 +4,27 @@ Proof of Concept to index CVs (JSON) and query them using RAG.
 
 ## Quickstart
 
+Option A — one click (VS Code F5):
+
+1) Open the folder in VS Code
+2) Choose the launch configuration "F5: Prep+Index+Serve"
+3) Press F5. It will: prepare datasets (if present), build the index, and start the API on port 8080.
+
+Option B — terminal:
+
+```powershell
+# Run everything (prep + index + API)
+python -m src.app
+
+# Serve only (no prep/index)
+python -m src.app serve
+
+# Or run steps separately (opcional)
+python -m src.ingest.prepare_llm_dataset
+python -m src.ingest.build_index
+python -m uvicorn src.api.main:app --reload --port 8080
+```
+
 ```bash
 # 1) Create virtual environment
 python -m venv .venv
