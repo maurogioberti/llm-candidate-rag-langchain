@@ -1,0 +1,144 @@
+{
+  "GeneralInfo": {
+    "CandidateId": "PabloGorosito",
+    "Fullname": "Pablo Guillermo Gorosito",
+    "TitleDetected": "QA Tester Junior",
+    "TitlePredicted": "QA Manual Tester / Customer Service",
+    "SeniorityLevel": "Junior",
+    "YearsExperience": 8,
+    "RelevantYears": 1,
+    "IndustryMatch": "Partial alignment with IT (QA), strong alignment with customer service and operations",
+    "TrajectoryPattern": "Variable",
+    "MainIndustry": "Customer Service / Operations",
+    "EnglishLevel": "B1",
+    "OtherLanguages": [
+      {
+        "Language": "Español",
+        "Proficiency": "Native",
+        "Evidence": "IDIOMAS: ESPAÑOL"
+      }
+    ],
+    "Location": "Barcelona, España"
+  },
+  "SkillMatrix": [
+    {
+      "SkillName": "QA Manual Testing",
+      "SkillLevel": "Low",
+      "Evidence": "Testing QA Manual course at Coderhouse (2023-2024); limited professional practice"
+    },
+    {
+      "SkillName": "Customer Service",
+      "SkillLevel": "High",
+      "Evidence": "Atención al Ciudadano at I.C.S, technical advisory roles at La Casa de las Baterías"
+    },
+    {
+      "SkillName": "Team Coordination",
+      "SkillLevel": "Medium",
+      "Evidence": "Coordinación y asignación eficiente de citas at I.C.S"
+    },
+    {
+      "SkillName": "Logistics & Delivery",
+      "SkillLevel": "High",
+      "Evidence": "Repartidor at Stuart; logistics and delivery focus"
+    },
+    {
+      "SkillName": "Vehicle Maintenance & Inspection",
+      "SkillLevel": "Medium",
+      "Evidence": "Mozo de Campa at Moove Cars; cleaning, inspection, and preparation of vehicles"
+    },
+    {
+      "SkillName": "Safety & Prevention",
+      "SkillLevel": "High",
+      "Evidence": "Socorrista at Aunar Group, Aqualia; preventive safety for users in aquatic environments"
+    },
+    {
+      "SkillName": "Technical Troubleshooting",
+      "SkillLevel": "Medium",
+      "Evidence": "Advanced PC maintenance, technical diagnostics and repair"
+    },
+    {
+      "SkillName": "Organization & Efficiency",
+      "SkillLevel": "High",
+      "Evidence": "Described in logistics and maintenance roles"
+    }
+  ],
+  "KeywordCoverage": {
+    "KeywordsDetected": [
+      "QA",
+      "Testing",
+      "Manual",
+      "Customer Service",
+      "Atención al Ciudadano",
+      "Logística",
+      "Socorrista",
+      "PC Maintenance",
+      "Inspección",
+      "Mantenimiento",
+      "Repartidor"
+    ],
+    "KeywordsMissing": [
+      "Automation",
+      "Agile",
+      "SQL",
+      "JavaScript",
+      "Bug Reporting",
+      "Jira",
+      "Regression Testing",
+      "API Testing",
+      "CI/CD",
+      "Teamwork"
+    ],
+    "Density": 28,
+    "Context": "Mentions QA Manual, customer service, logistics, maintenance, and safety; lacks core IT and testing automation terms."
+  },
+  "Languages": [
+    {
+      "Language": "Español",
+      "Proficiency": "Native",
+      "Evidence": "Native language, all education and experience in Spanish-speaking countries"
+    }
+  ],
+  "Scores": {
+    "GeneralScore": 58,
+    "ATSCompatibility": 65,
+    "ClarityScore": 70,
+    "FormattingScore": 58,
+    "KeywordDensity": 28,
+    "EnglishProficiency": 0,
+    "SeniorityMatch": 35,
+    "SkillCoverage": 50,
+    "AchievementsQuantification": 20,
+    "SoftSkillsCoverage": 65
+  },
+  "Relevance": {
+    "TitleMatch": 55,
+    "ResponsibilityMatch": 50,
+    "OverallFit": 53
+  },
+  "ClarityAndFormatting": {
+    "ClarityScore": 70,
+    "FormattingScore": 58,
+    "SpellingErrors": 2
+  },
+  "Summary": "Versatile junior professional with a background in customer service, logistics, and recent training in manual QA testing. Demonstrates strong skills in organization, safety, team coordination, and technical troubleshooting. Eager to grow in IT roles, particularly in QA testing, while leveraging strengths in customer interaction and process efficiency.",
+  "Strengths": [
+    "Customer service and user support experience",
+    "Organizational and efficiency skills",
+    "Preventive safety and responsibility in operations",
+    "Technical troubleshooting with basic hardware maintenance",
+    "Adaptability across diverse job environments"
+  ],
+  "AreasToImprove": [
+    "Hands-on experience and certifications in QA testing",
+    "Knowledge of test automation, bug tracking tools, and modern QA methodologies",
+    "English language proficiency for broader job opportunities"
+  ],
+  "Tips": [
+    "Gain practical QA experience through internships or personal projects",
+    "Pursue training in automation tools, bug reporting, and Agile methodologies",
+    "Structure and format the resume with clear sections for ATS compatibility",
+    "Add an English proficiency section or pursue basic English courses",
+    "Include any IT or QA-related achievements and quantify results where possible"
+  ],
+  "CleanedResumeText": "PABLO GUILLERMO GOROSITO\nBarcelona, 08013, España | QA Tester Junior | pablo.92pgg@gmail.com\n\nIDIOMAS\nEspañol (nativo)\n\nEXPERIENCIA LABORAL\nI.C.S Atenció Primaria Barcelona Ciutat | dic. 2023 - feb. 2024\n- Atención al Ciudadano: Coordinación y asignación eficiente de citas para optimizar la experiencia del usuario.\n\nMoove Cars | Mozo de Campa | feb. 2023 - abr. 2023\n- Gestión eficiente de conductores y mantenimiento integral de vehículos, asegurando su óptimo funcionamiento y presentación.\n- Preparación y limpieza de automóviles, garantizando altos estándares de calidad para su entrega.\n- Organización del espacio y estacionamiento de vehículos, maximizando la eficiencia de las instalaciones.\n- Inspección rigurosa de vehículos para detectar y reportar daños, contribuyendo a la conservación del valor de la flota.\n\nStuart | Repartidor | ene. 2022 - nov. 2022\n- Logística de última milla: entrega puntual garantizada y agilidad en reparto de paquetería en moto.\n\nAunar Group 2009 SL | Socorrista | abr. 2023 - sep. 2023\nAqualia | Socorrista | fechas no especificadas\n- Prevención y seguridad para usuarios en instalaciones acuáticas.\n- Mantenimiento óptimo de la piscina, asegurando instalaciones higiénicas y funcionales.\n\nLa Casa de las Baterías | Operario | mar. 2013 - may. 2017\n- Atención al cliente y asesoramiento técnico para instalación y mantenimiento de baterías.\n- Diagnóstico y resolución de averías.\n\nNASA Computación | Mantenimiento Avanzado de PC | mar. 2012 - dic. 2012\nNASA Computación | Mantenimiento Básico de PC | mar. 2011 - dic. 2011\n- Mantenimiento y reparación de equipos de computación.\n\nEDUCACIÓN\nCertificado de Equivalencia de Educación Secundaria\nColegio Salesiano San José Nº 2043 y Nº 8013, Rosario\n- Título de Bachillerato especializado en Equipos e Instalaciones Electromecánicas.\n- Formación pre-profesional.\n\nCURSOS Y CERTIFICACIONES\nTesting QA Manual | Coderhouse | dic. 2023 - feb. 2024\n\nDATOS PERSONALES\nFecha de nacimiento: 19/02/1992\nNacionalidad: Italiano\nPermiso de conducir: AM, A1, A2, A, B"
+}

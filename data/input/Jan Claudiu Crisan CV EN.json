@@ -1,0 +1,158 @@
+{
+  "GeneralInfo": {
+	  "CandidateId": "JanCrisan",
+    "Fullname": "Jan-Claudiu Crisan",
+    "TitleDetected": "Java Developer",
+    "TitlePredicted": "Java Backend Developer",
+    "SeniorityLevel": "Mid",
+    "YearsExperience": 5,
+    "RelevantYears": 4,
+    "TrajectoryPattern": "Stable",
+    "IndustryMatch": "High",
+    "MainIndustry": "Software Development",
+    "EnglishLevel": "Advanced",
+    "OtherLanguages": [
+      {
+        "Language": "Romanian",
+        "Proficiency": "Native",
+        "Evidence": "Mother tongue listed as Romanian"
+      }
+    ],
+    "Location": "Arad, Romania"
+  },
+  "SkillMatrix": [
+    {
+      "SkillName": "Java",
+      "SkillLevel": "Very High",
+      "Evidence": "Multiple years using Java 8 for backend and POS solutions"
+    },
+    {
+      "SkillName": "Spring (MVC, Boot, Data, Security)",
+      "SkillLevel": "High",
+      "Evidence": "Developed and maintained applications with Spring MVC, Boot, Data, and Security"
+    },
+    {
+      "SkillName": "REST API Development",
+      "SkillLevel": "High",
+      "Evidence": "Designed and maintained REST APIs in Java with a team"
+    },
+    {
+      "SkillName": "Maven",
+      "SkillLevel": "High",
+      "Evidence": "Used Maven for dependency management and build processes"
+    },
+    {
+      "SkillName": "Docker",
+      "SkillLevel": "Medium",
+      "Evidence": "Docker mentioned for development and maintenance"
+    },
+    {
+      "SkillName": "Bitbucket / GIT",
+      "SkillLevel": "High",
+      "Evidence": "Source control management with GIT and Bitbucket"
+    },
+    {
+      "SkillName": "MySQL / Hibernate",
+      "SkillLevel": "Medium",
+      "Evidence": "Experience with MySQL and Hibernate for data management"
+    },
+    {
+      "SkillName": "Kotlin",
+      "SkillLevel": "Medium",
+      "Evidence": "Used Kotlin in POS system development"
+    },
+    {
+      "SkillName": "Mockito",
+      "SkillLevel": "Medium",
+      "Evidence": "Used Mockito for testing"
+    },
+    {
+      "SkillName": "ECDL / Microsoft Office",
+      "SkillLevel": "High",
+      "Evidence": "ECDL certification; advanced skills in Excel, Word, PowerPoint"
+    }
+  ],
+  "KeywordCoverage": {
+    "KeywordsDetected": [
+      "Java",
+      "Spring Boot",
+      "REST API",
+      "Docker",
+      "GIT",
+      "MySQL",
+      "Hibernate",
+      "Maven",
+      "Kotlin",
+      "Bitbucket",
+      "Testing",
+      "Software Engineering",
+      "Code Reviews"
+    ],
+    "KeywordsMissing": [
+      "Cloud",
+      "Microservices",
+      "CI/CD",
+      "NoSQL",
+      "DevOps",
+      "Frontend Frameworks",
+      "Agile",
+      "Unit Testing"
+    ],
+    "Density": 11,
+    "Context": "Core backend technologies, database, VCS, and testing keywords appear throughout the experience sections; missing cloud and microservices-specific terminology."
+  },
+  "Languages": [
+    {
+      "Language": "Romanian",
+      "Proficiency": "Native",
+      "Evidence": "Mother tongue listed as Romanian"
+    },
+    {
+      "Language": "English",
+      "Proficiency": "Advanced",
+      "Evidence": "C1 in listening, speaking, reading, and writing"
+    }
+  ],
+  "Scores": {
+    "GeneralScore": 78,
+    "ATSCompatibility": 82,
+    "ClarityScore": 76,
+    "FormattingScore": 68,
+    "KeywordDensity": 68,
+    "EnglishProficiency": 80,
+    "SeniorityMatch": 75,
+    "SkillCoverage": 78,
+    "AchievementsQuantification": 60,
+    "SoftSkillsCoverage": 64
+  },
+  "Relevance": {
+    "TitleMatch": 90,
+    "ResponsibilityMatch": 85,
+    "OverallFit": "High"
+  },
+  "ClarityAndFormatting": {
+    "ClarityScore": 76,
+    "FormattingScore": 68,
+    "SpellingErrors": 2
+  },
+  "Summary": "Jan-Claudiu Crisan is a mid-level Java backend developer with five years of experience in building and maintaining software solutions, particularly REST APIs using Java, Spring, and related technologies. He has collaborated in agile team settings, developed point-of-sale and enterprise solutions, and demonstrates strong technical and communication skills. He is proficient in English and Romanian, with advanced digital skills in software engineering and Microsoft Office.",
+  "Strengths": [
+    "Solid Java backend experience",
+    "Strong grasp of Spring ecosystem",
+    "Hands-on REST API development",
+    "Source control and team collaboration",
+    "Proven ability in requirements analysis and code review"
+  ],
+  "AreasToImprove": [
+    "Include more achievements with quantified impact",
+    "Expand on cloud, microservices, and CI/CD exposure",
+    "Provide examples of leadership or mentoring if applicable"
+  ],
+  "Tips": [
+    "Add measurable results or KPIs for project outcomes",
+    "List exposure to Agile, DevOps, or CI/CD processes explicitly",
+    "Consider including any cloud, container orchestration, or modern devops tools",
+    "Improve resume formatting for better ATS parsing and visual clarity"
+  ],
+  "CleanedResumeText": "Jan-Claudiu Crisan\nArad, Romania | crisan.janclaudiu@yahoo.com | \n\nWORK EXPERIENCE\nJava Developer – Nagarro (May 2022 – June 2023, Arad, Romania)\n• Developed and maintained Java backend applications using Spring MVC, Spring Boot, Spring Data, Spring Security, Maven, Docker, and Bitbucket.\n• Collaborated with a team to design, build, and maintain efficient REST APIs.\n• Implemented security solutions, conducted code reviews, and ensured software reliability.\n• Technologies: Java 8, Spring, Liquibase, Maven, Docker, Bitbucket, GIT, Mockito.\n\nCash Register Sales and Developer – DEM SERVICE (Mar 2019 – Oct 2021, Arad, Romania)\n• Contributed to full-cycle development of point-of-sale systems and cash register programming.\n• Developed CRUD features and communication protocols between cash registers and web interfaces.\n• Participated in bug fixing, continuous improvement, sales, and customer relations.\n• Technologies: Java 8, Kotlin, Spring Boot, MySQL, Hibernate, GIT.\n\nEDUCATION\nBachelor's Degree in Software Engineering (EQF Level 7)\nUniversitea \"Aurel Vlaicu\" Arad, Romania (2018 – 2022)\n\nCERTIFICATIONS\nECDL (European Computer Driving Licence), Excel, Word, PowerPoint (2015)\n\nLANGUAGES\nRomanian (Native), English (C1 Advanced)\n\nDIGITAL SKILLS\nJava, Spring MVC/Boot/Data/Security, REST APIs, Maven, Docker, Bitbucket, GIT, MySQL, Hibernate, Kotlin, Mockito, Microsoft Office Suite, Data Structures and Algorithms\n"
+}
