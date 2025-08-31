@@ -32,9 +32,9 @@ def _load_llm():
 
 
 def build_chain():
-    from src.core.embedding_client import load_embeddings
-    from src.core.retriever import chroma_persistent
-    from src.core.prompting import load_prompt
+    from src.core.application.embedding_client import load_embeddings
+    from src.core.application.retriever import chroma_persistent
+    from src.core.application.prompting import load_prompt
 
     emb = load_embeddings()
     store = chroma_persistent(emb)
@@ -45,7 +45,7 @@ def build_chain():
         (
             "human",
             'If the question mentions backend or .NET/C#, treat the retrieval focus terms as: '
-            '"\\.NET, C#, ASP.NET, Entity Framework, SQL Server, Azure".\n'
+            "\\.NET, C#, ASP.NET, Entity Framework, SQL Server, Azure"+"\n"
             "Context:\n{context}\n\nQuestion:\n{input}\n\n"
             "Answer (cite CandidateId and section):"
         ),

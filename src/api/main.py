@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from src.ingest.build_index import build_index
-from src.chat.agent import build_chain
+from src.core.application.agent import build_chain
 
 app = FastAPI(title="Candidate RAG (LangChain)")
 

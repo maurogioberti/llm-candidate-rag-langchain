@@ -1,6 +1,6 @@
 import os, json
 from pathlib import Path
-from src.infra.llm import load_llm_instruction_records
+from src.core.infrastructure.llm import load_llm_instruction_records
 
 def main():
     src = os.getenv("LLM_INSTRUCTION_FILE", "data/instructions/llm.jsonl")
