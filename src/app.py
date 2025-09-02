@@ -8,13 +8,6 @@ MODE_SERVE = "serve"
 DEFAULT_PORT = 8080
 DEFAULT_RELOAD = "true"
 
-def _maybe_prepare_dataset() -> None:
-    from src.ingest.prepare_llm_dataset import main as prep_main
-    try:
-        prep_main()
-    except Exception as e:
-        print(f"[WARN] Dataset prep skipped: {e}")
-
 def _build_index() -> None:
     from src.ingest.build_index import build_index
     info = build_index()
@@ -32,7 +25,6 @@ def main(argv: list[str] | None = None) -> int:
     if mode == MODE_SERVE:
         _serve()
         return 0
-    _maybe_prepare_dataset()
     _build_index()
     _serve()
     return 0

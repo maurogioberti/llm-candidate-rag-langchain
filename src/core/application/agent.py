@@ -24,6 +24,8 @@ PROMPT_SYSTEM_FILE = "chat_system.txt"
 PROMPT_HUMAN_FILE = "chat_human.txt"
 RETRIEVER_TOP_K = 6
 TEMPERATURE_ZERO = 0
+ENV_RETRIEVAL_TYPES = "RETRIEVAL_TYPES"
+DEFAULT_RETRIEVAL_TYPES = "candidate"
 
 def _load_llm():
     provider = os.getenv(ENV_LLM_PROVIDER)
@@ -51,7 +53,9 @@ def build_chain():
 
     embeddings = load_embeddings()
     vector_store = chroma_persistent(embeddings)
-    retriever = vector_store.as_retriever(search_kwargs={"k": RETRIEVER_TOP_K})
+    types = os.getenv(ENV_RETRIEVAL_TYPES, DEFAULT_RETRIEVAL_TYPES)
+    metadata_filter = {"type": {"$in": [t.strip() for t in types.split(",") if t.strip()]}}
+    retriever = vector_store.as_retriever(search_kwargs={"k": RETRIEVER_TOP_K, "filter": metadata_filter})
     system_prompt = load_prompt(PROMPT_SYSTEM_FILE)
     human_prompt = load_prompt(PROMPT_HUMAN_FILE)
     prompt = ChatPromptTemplate.from_messages([

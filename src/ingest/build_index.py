@@ -62,6 +62,7 @@ def _candidate_to_documents(candidate: CandidateRecord) -> list:
         documents.append(Document(
             page_content=block,
             metadata={
+                "type": "candidate",
                 "candidate_id": candidate.candidate_id,
                 "prepared": candidate.prepared,
                 "english_level": candidate.english_level,

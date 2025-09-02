@@ -20,7 +20,6 @@ python -m src.app
 python -m src.app serve
 
 # Or run steps separately (opcional)
-python -m src.ingest.prepare_llm_dataset
 python -m src.ingest.build_index
 python -m uvicorn src.api.main:app --reload --port 8080
 ```
