@@ -8,13 +8,20 @@ from src.core.domain.candidate import CandidateRecord
 from src.core.application.embedding_client import load_embeddings
 from src.core.application.retriever import chroma_from_documents
 from src.core.infrastructure.embeddings import load_instruction_pairs
+from src.core.infrastructure.llm import load_llm_instruction_records
 
 DEFAULT_DATA_DIR = "./data"
 INPUT_SUBDIR = "input"
 DEFAULT_EMBEDDING_INSTRUCTION_FILE = "data/instructions/embedings.jsonl"
+DEFAULT_LLM_INSTRUCTION_FILE = "data/instructions/llm.jsonl"
 CHUNK_SIZE = 600
 CHUNK_OVERLAP = 60
 ENGLISH_LEVEL_MAP = {"A1": 1, "A2": 2, "B1": 3, "B2": 4, "C1": 5, "C2": 6}
+FIELD_INSTRUCTION = "instruction"
+FIELD_INPUT = "input"
+FIELD_OUTPUT = "output"
+FIELD_ROW_ID = "_row_id"
+LLM_PREFIX = "[LLMInstruction]"
 
 DATA_DIR = Path(os.getenv("DATA_DIR", DEFAULT_DATA_DIR))
 INPUT_DIR = DATA_DIR / INPUT_SUBDIR
@@ -79,6 +86,10 @@ def build_index() -> dict:
     if instr_path.exists():
         docs += _load_and_split_instruction_docs(instr_path)
 
+    llm_instr_path = Path(os.getenv("LLM_INSTRUCTION_FILE", DEFAULT_LLM_INSTRUCTION_FILE))
+    if llm_instr_path.exists():
+        docs += _load_and_split_llm_instruction_docs(llm_instr_path)
+
     emb = load_embeddings()
     chroma_from_documents(docs, emb)
     return {"candidates": len(records), "chunks": len(docs)}
@@ -88,6 +99,16 @@ def _load_and_split_instruction_docs(instr_path: Path) -> list:
     pairs = load_instruction_pairs(instr_path)
     extra_docs = [Document(page_content=text, metadata=meta) for (text, meta) in pairs]
     return _split_documents(extra_docs)
+
+def _load_and_split_llm_instruction_docs(path: Path) -> list:
+    from langchain_core.documents import Document
+    records = load_llm_instruction_records(path)
+    docs = []
+    for r in records:
+        content = f"{LLM_PREFIX} Instruction: {r.get(FIELD_INSTRUCTION, '')}\nInput:\n{json.dumps(r.get(FIELD_INPUT, ''), ensure_ascii=False)}\nOutput:\n{json.dumps(r.get(FIELD_OUTPUT, ''), ensure_ascii=False)}"
+        meta = {"type": "llm_instruction", FIELD_ROW_ID: r.get(FIELD_ROW_ID)}
+        docs.append(Document(page_content=content, metadata=meta))
+    return _split_documents(docs)
 
 def build_index_from_records(records: list):
     emb = load_embeddings()
