@@ -10,50 +10,57 @@ load_dotenv(dotenv_path=".env", override=True)
 
 __all__ = ["build_chain", "build_index"]
 
+ENV_LLM_PROVIDER = "LLM_PROVIDER"
+ENV_LLM_MODEL = "LLM_MODEL"
+ENV_OLLAMA_BASE_URL = "OLLAMA_BASE_URL"
+ENV_OPENAI_BASE_URL = "OPENAI_BASE_URL"
+ENV_OPENAI_API_KEY = "OPENAI_API_KEY"
+ENV_ENABLE_GPT5_MINI = "ENABLE_GPT5_MINI_PREVIEW"
+LLM_PROVIDER_OLLAMA = "ollama"
+LLM_PROVIDER_OPENAI = "openai"
+DEFAULT_OLLAMA_BASE_URL = "http://localhost:11434"
+DEFAULT_OPENAI_MODEL = "gpt-5-mini"
+PROMPT_SYSTEM_FILE = "chat_system.txt"
+PROMPT_HUMAN_FILE = "chat_human.txt"
+RETRIEVER_TOP_K = 6
+TEMPERATURE_ZERO = 0
 
 def _load_llm():
-    prov = os.getenv("LLM_PROVIDER")
-    model = os.getenv("LLM_MODEL")
-    if not prov or not model:
-        raise RuntimeError("Missing LLM_PROVIDER or LLM_MODEL in .env")
-    prov = prov.lower()
-    if prov == "ollama":
-        base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-        print(f"[LLM] provider=ollama model={model} base={base_url}")
-        return ChatOllama(model=model, base_url=base_url, temperature=0)
-    if prov == "openai":
-        base_url = os.getenv("OPENAI_BASE_URL")
-        api_key = os.getenv("OPENAI_API_KEY")
+    provider = os.getenv(ENV_LLM_PROVIDER)
+    model_name = os.getenv(ENV_LLM_MODEL)
+    if not provider:
+        raise RuntimeError("Missing LLM_PROVIDER in .env")
+    provider = provider.lower()
+    if provider == LLM_PROVIDER_OLLAMA:
+        base_url = os.getenv(ENV_OLLAMA_BASE_URL, DEFAULT_OLLAMA_BASE_URL)
+        return ChatOllama(model=model_name, base_url=base_url, temperature=TEMPERATURE_ZERO)
+    if provider == LLM_PROVIDER_OPENAI:
+        base_url = os.getenv(ENV_OPENAI_BASE_URL)
+        api_key = os.getenv(ENV_OPENAI_API_KEY)
         if not api_key:
             raise RuntimeError("Missing OPENAI_API_KEY in .env for provider=openai")
-        print(f"[LLM] provider=openai model={model} base={base_url or 'default'}")
-        return ChatOpenAI(model=model, base_url=base_url, api_key=api_key, temperature=0)
-    raise ValueError(f"Unsupported LLM_PROVIDER: {prov}")
-
+        enable_preview = os.getenv(ENV_ENABLE_GPT5_MINI, "true").lower() == "true"
+        effective_model = (DEFAULT_OPENAI_MODEL if enable_preview else model_name) or DEFAULT_OPENAI_MODEL
+        return ChatOpenAI(model=effective_model, base_url=base_url, api_key=api_key, temperature=TEMPERATURE_ZERO)
+    raise ValueError(f"Unsupported LLM_PROVIDER: {provider}")
 
 def build_chain():
     from src.core.application.embedding_client import load_embeddings
     from src.core.application.retriever import chroma_persistent
     from src.core.application.prompting import load_prompt
 
-    emb = load_embeddings()
-    store = chroma_persistent(emb)
-    retriever = store.as_retriever(search_kwargs={"k": 6})
-    system = load_prompt("chat_system.txt")
+    embeddings = load_embeddings()
+    vector_store = chroma_persistent(embeddings)
+    retriever = vector_store.as_retriever(search_kwargs={"k": RETRIEVER_TOP_K})
+    system_prompt = load_prompt(PROMPT_SYSTEM_FILE)
+    human_prompt = load_prompt(PROMPT_HUMAN_FILE)
     prompt = ChatPromptTemplate.from_messages([
-        ("system", system),
-        (
-            "human",
-            'If the question mentions backend or .NET/C#, treat the retrieval focus terms as: '
-            "\\.NET, C#, ASP.NET, Entity Framework, SQL Server, Azure"+"\n"
-            "Context:\n{context}\n\nQuestion:\n{input}\n\n"
-            "Answer (cite CandidateId and section):"
-        ),
+        ("system", system_prompt),
+        ("human", human_prompt),
     ])
     llm = _load_llm()
     doc_chain = create_stuff_documents_chain(llm, prompt)
     return create_retrieval_chain(retriever, doc_chain)
-
 
 def build_index():
     return build_chain()

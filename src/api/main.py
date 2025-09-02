@@ -3,30 +3,39 @@ from pydantic import BaseModel
 from src.ingest.build_index import build_index
 from src.core.application.agent import build_chain
 
-app = FastAPI(title="Candidate RAG (LangChain)")
+APP_TITLE = "Candidate RAG (LangChain)"
+ROUTE_HEALTH = "/health"
+ROUTE_INDEX = "/index"
+ROUTE_CHAT = "/chat"
+STATUS_OK = "ok"
+PAYLOAD_INPUT = "input"
+FIELD_ANSWER = "answer"
+FIELD_CONTEXT = "context"
+ERROR_PREFIX = "LLM/Index error: "
+
+app = FastAPI(title=APP_TITLE)
 
 class ChatRequest(BaseModel):
     question: str
     filters: dict | None = None
 
-@app.get("/health")
+@app.get(ROUTE_HEALTH)
 def health():
-    return {"status": "ok"}
+    return {"status": STATUS_OK}
 
-@app.post("/index")
+@app.post(ROUTE_INDEX)
 def index():
     info = build_index()
     return {"indexed": info}
 
-@app.post("/chat")
+@app.post(ROUTE_CHAT)
 def chat(req: ChatRequest):
     try:
         chain = build_chain()
-        result = chain.invoke({"input": req.question})
-        
+        result = chain.invoke({PAYLOAD_INPUT: req.question})
         return {
-            "answer": result.get("answer", ""),
-            "sources": [getattr(d, "metadata", {}) for d in result.get("context", [])]
+            FIELD_ANSWER: result.get(FIELD_ANSWER, ""),
+            "sources": [getattr(d, "metadata", {}) for d in result.get(FIELD_CONTEXT, [])]
         }
     except Exception as e:
-        raise HTTPException(status_code=502, detail=f"LLM/Index error: {e}")
+        raise HTTPException(status_code=502, detail=f"{ERROR_PREFIX}{e}")

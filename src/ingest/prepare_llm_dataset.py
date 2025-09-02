@@ -2,37 +2,48 @@ import os, json
 from pathlib import Path
 from src.core.infrastructure.llm import load_llm_instruction_records
 
-def main():
-    src = os.getenv("LLM_INSTRUCTION_FILE", "data/instructions/llm.jsonl")
-    out_dir = Path(os.getenv("LLM_FT_EXPORT_DIR", "data/finetune_exports"))
-    out_dir.mkdir(parents=True, exist_ok=True)
+ENV_LLM_INSTRUCTION_FILE = "LLM_INSTRUCTION_FILE"
+ENV_LLM_FT_EXPORT_DIR = "LLM_FT_EXPORT_DIR"
+DEFAULT_LLM_INSTRUCTION_FILE = "data/instructions/llm.jsonl"
+DEFAULT_FT_EXPORT_DIR = "data/finetune_exports"
+OPENAI_EXPORT_FILENAME = "openai_chat.jsonl"
+INSTRUCT_EXPORT_FILENAME = "instruct_generic.jsonl"
+FILE_ENCODING = "utf-8"
+ROLE_SYSTEM = "system"
+ROLE_USER = "user"
+ROLE_ASSISTANT = "assistant"
 
-    recs = load_llm_instruction_records(src)
-    if not recs:
-        print(f"[WARN] No records loaded from {src}")
+def main():
+    source_path = os.getenv(ENV_LLM_INSTRUCTION_FILE, DEFAULT_LLM_INSTRUCTION_FILE)
+    export_dir = Path(os.getenv(ENV_LLM_FT_EXPORT_DIR, DEFAULT_FT_EXPORT_DIR))
+    export_dir.mkdir(parents=True, exist_ok=True)
+
+    records = load_llm_instruction_records(source_path)
+    if not records:
+        print(f"[WARN] No records loaded from {source_path}")
         return
 
-    openai_path = out_dir / "openai_chat.jsonl"
-    with open(openai_path, "w", encoding="utf-8") as f:
-        for r in recs:
-            f.write(json.dumps({
+    openai_path = export_dir / OPENAI_EXPORT_FILENAME
+    with open(openai_path, "w", encoding=FILE_ENCODING) as f:
+        for r in records:
+            f.write(f"{json.dumps({
                 "messages": [
-                    {"role": "system", "content": r["instruction"]},
-                    {"role": "user", "content": json.dumps(r["input"], ensure_ascii=False)},
-                    {"role": "assistant", "content": json.dumps(r["output"], ensure_ascii=False)}
+                    {"role": ROLE_SYSTEM, "content": r["instruction"]},
+                    {"role": ROLE_USER, "content": json.dumps(r["input"], ensure_ascii=False)},
+                    {"role": ROLE_ASSISTANT, "content": json.dumps(r["output"], ensure_ascii=False)}
                 ]
-            }, ensure_ascii=False) + "\n")
+            }, ensure_ascii=False)}\n")
 
-    instruct_path = out_dir / "instruct_generic.jsonl"
-    with open(instruct_path, "w", encoding="utf-8") as f:
-        for r in recs:
-            f.write(json.dumps({
+    instruct_path = export_dir / INSTRUCT_EXPORT_FILENAME
+    with open(instruct_path, "w", encoding=FILE_ENCODING) as f:
+        for r in records:
+            f.write(f"{json.dumps({
                 "instruction": r["instruction"],
                 "input": r["input"],
                 "output": r["output"]
-            }, ensure_ascii=False) + "\n")
+            }, ensure_ascii=False)}\n")
 
-    print(f"[OK] Loaded {len(recs)} records")
+    print(f"[OK] Loaded {len(records)} records")
     print(f"[OK] Wrote: {openai_path}")
     print(f"[OK] Wrote: {instruct_path}")
 

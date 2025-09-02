@@ -3,17 +3,24 @@ from pathlib import Path
 from typing import List, Dict, Any
 import json
 
-def load_llm_instruction_records(path: str | Path = "data/instructions/llm.jsonl") -> List[Dict[str, Any]]:
+DEFAULT_LLM_INSTRUCTION_FILE = "data/instructions/llm.jsonl"
+FILE_ENCODING = "utf-8"
+FIELD_INSTRUCTION = "instruction"
+FIELD_INPUT = "input"
+FIELD_OUTPUT = "output"
+FIELD_ROW_ID = "_row_id"
+
+def load_llm_instruction_records(path: str | Path = DEFAULT_LLM_INSTRUCTION_FILE) -> List[Dict[str, Any]]:
     p = Path(path)
     if not p.exists():
         return []
-    out: List[Dict[str, Any]] = []
-    for i, line in enumerate(p.read_text(encoding="utf-8").splitlines(), start=1):
+    records: List[Dict[str, Any]] = []
+    for i, line in enumerate(p.read_text(encoding=FILE_ENCODING).splitlines(), start=1):
         line = line.strip()
         if not line:
             continue
         rec = json.loads(line)
-        if "instruction" in rec and "input" in rec and "output" in rec:
-            rec["_row_id"] = i
-            out.append(rec)
-    return out
+        if FIELD_INSTRUCTION in rec and FIELD_INPUT in rec and FIELD_OUTPUT in rec:
+            rec[FIELD_ROW_ID] = i
+            records.append(rec)
+    return records
